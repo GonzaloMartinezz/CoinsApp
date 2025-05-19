@@ -3,9 +3,9 @@ import React from 'react'
 const Login = () => {
     return (
         <>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col">
+            <div classNameName="container-fluid">
+                <div classNameName="row">
+                    <div classNameName="col">
                         <h2>LoginScreen</h2>
                     </div>
                 </div>

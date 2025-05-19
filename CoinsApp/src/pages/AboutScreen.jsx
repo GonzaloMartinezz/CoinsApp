@@ -1,18 +1,18 @@
 import React from 'react'
 
-const HomeScreen = () => {
-    return (
-        <>
+const AboutScreen = () => {
+  return (
+     <>
             <div classNameName="container-fluid">
                 <div classNameName="row">
                     <div classNameName="col">
-                        <h2>HomeScreen</h2>
+                        <h2>AboutScreen</h2>
                     </div>
                 </div>
             </div>
 
         </>
-    )
+  )
 }
 
-export default HomeScreen
+export default AboutScreen

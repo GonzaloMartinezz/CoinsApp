@@ -3,9 +3,9 @@ import React from 'react'
 const ErrorScreen = () => {
     return (
         <>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col">
+            <div classNameName="container">
+                <div classNameName="row">
+                    <div classNameName="col">
                         <h2>ErrorScreen</h2>
                     </div>
                 </div>
