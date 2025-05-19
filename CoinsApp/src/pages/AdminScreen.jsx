@@ -10,7 +10,6 @@ const AdminScreen = () => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

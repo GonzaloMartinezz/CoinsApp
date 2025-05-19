@@ -13,12 +13,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar />
+       <Navbar />
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/login" element={<Login />} />
           <Route path="/error" element={<ErrorScreen />} />
-        {/*   <Route path="/admin" element={<AdminScreen />} /> */}
+          <Route path="/admin" element={<AdminScreen />} />
           <Route path="/about" element={<AboutScreen />} />
         </Routes>
       </BrowserRouter>
