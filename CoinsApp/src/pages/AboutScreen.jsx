@@ -3,9 +3,9 @@ import React from 'react'
 const AboutScreen = () => {
   return (
      <>
-            <div classNameName="container-fluid">
-                <div classNameName="row">
-                    <div classNameName="col">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col">
                         <h2>AboutScreen</h2>
                     </div>
                 </div>
