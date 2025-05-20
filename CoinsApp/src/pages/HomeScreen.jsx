@@ -3,13 +3,25 @@ import React from 'react'
 const HomeScreen = () => {
     return (
         <>
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <h2>HomeScreen</h2>
+        <div className= "container">
+            <div className="row mt-5">
+                <div className="col text-center">
+                    <h1>Cripto Currency</h1>
+                </div>
+            </div>
+            <div className="row mb-3">
+                <div className="col">
+                    <div className="d-flex justify-content-end">
+                        <button className="btn btn-outline-success">
+                            <i className="fa fa-refresh" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
+            <div className="row"> {/*barra de busqueda*/}</div>
+            <div classname="row mt-5">{/*tabla*/}</div>
+        </div>
+
 
         </>
     )
