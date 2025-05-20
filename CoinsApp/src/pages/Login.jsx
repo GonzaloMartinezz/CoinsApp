@@ -37,7 +37,7 @@ const Login = () => {
         alert ("Email o password incorrectos");
       }
     }
-    
+
     return (
         <>
             <div className="container">
@@ -69,7 +69,11 @@ const Login = () => {
                                 onChange={handleChange}
                                 />
                             </div>
-                            {showAlert && (<p className='bg-danger text-light text-center m-3'>Faltan datos,complete todos los campos</p>
+
+                            {showAlert && (
+                                <div className="alert alert-danger" role="alert">
+                                    Todos los campos son obligatorios
+                                </div>
                             )}
                             <div className='mb-3 d-grid'>
                                 <button type="submit" className="btn btn-success">Sign In</button>
