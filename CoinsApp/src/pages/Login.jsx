@@ -3,37 +3,41 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const navigate = useNavigate();
-    //estados para cada uno de los campos//
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+  });
 
-    const handleChange = (e) => {
-      setEmail(e.target.value);
-    }
-    const [showAlert, setShowAlert] = useState(false);
+  const { email, password } = formValues;
+  const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate();
 
+   const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
     const handleSubmit = (e) => {
       e.preventDefault();
-   
 
       const user = {
         email: "gonza@gonza.com",
         password: "123456",
+      };
 
-      }
-
+      //validaciones//
       if(!email || !password){
         setShowAlert(true);
       }
 
-      //validaciones//
       if(email === user.email && password === user.password){
         navigate("/");
       }else{
-        setShowAlert(true);
+        alert ("Email o password incorrectos");
       }
     }
+    
     return (
         <>
             <div className="container">
@@ -50,9 +54,9 @@ const Login = () => {
                                 <input 
                                 type="email" 
                                 className="form-control" 
-                                name='email'
-                                value={email} 
-                                onChange={handleChange}                      
+                                name="email"
+                                value={formValues.email} 
+                                onChange={handleChange}                    
                                 />
                             </div>
                             <div className="mb-3 d-grid">
@@ -60,14 +64,13 @@ const Login = () => {
                                 <input 
                                 type="password" 
                                 className="form-control" 
-                                name='password'
-                                value={password} 
-                                onChange={(e) =>
-                                    setPassword(e.target.value)
-                                }/>
+                                name="password"
+                                value={formValues.password} 
+                                onChange={handleChange}
+                                />
                             </div>
-                            {showAlert && <p className='bg-danger text-light text-center m-3'>Faltan datos,complete todos los campos</p>}
-                           
+                            {showAlert && (<p className='bg-danger text-light text-center m-3'>Faltan datos,complete todos los campos</p>
+                            )}
                             <div className='mb-3 d-grid'>
                                 <button type="submit" className="btn btn-success">Sign In</button>
                             </div>
