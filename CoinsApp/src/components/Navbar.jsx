@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link , NavLink } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({cambiarLogin}) => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -27,7 +27,7 @@ const Navbar = () => {
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
                         <li className="nav-item">
-                            <button className="btn btn-outline-dark">LogOut</button>
+                            <button className="btn btn-outline-dark" onClick={cambiarLogin}>LogOut</button>
                         </li>
                     </ul>
                 </div>

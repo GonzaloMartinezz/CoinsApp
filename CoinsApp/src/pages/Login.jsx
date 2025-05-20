@@ -2,16 +2,18 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({cambiarLogin}) => {
+   const navigate = useNavigate();
+
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
 
   const { email, password } = formValues;
-  const [showAlert, setShowAlert] = useState(false);
-  const navigate = useNavigate();
 
+  const [showAlert, setShowAlert] = useState(false);
+ 
    const handleChange = (e) => {
     setFormValues({
       ...formValues,
@@ -31,7 +33,8 @@ const Login = () => {
         setShowAlert(true);
       }
 
-      if(email === user.email && password === user.password){
+      if(email === user.email && password === user.password){       
+        cambiarLogin();
         navigate("/");
       }else{
         alert ("Email o password incorrectos");

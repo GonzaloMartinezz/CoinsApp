@@ -1,25 +1,27 @@
 import React from 'react'
+import { useState } from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import './App.css'
-import Navbar from './components/Navbar'
-import HomeScreen from './pages/HomeScreen'
+/* import './App.css' */
 import Login from './pages/Login'
-import ErrorScreen from './pages/ErrorScreen'
-import AdminScreen from './pages/AdminScreen'
-import AboutScreen from './pages/AboutScreen'
-
+import RoutesApp from './routes/RoutesApp'
+import ProtectedRoutes from './routes/ProtectedRoutes'
 
 function App() {
+
+  const [login, setLogin] = useState(false);
+const cambiarLogin = () => {
+  setLogin(!login);
+}
   return (
     <>
       <BrowserRouter>
-       <Navbar />
         <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<ErrorScreen />} />
-          <Route path="/admin" element={<AdminScreen />} />
-          <Route path="/about" element={<AboutScreen />} />
+          <Router path = "/*" element={
+            <ProtectedRoutes login = {login}> 
+            <RoutesApp cambiarLogin = {cambiarLogin} />
+            </ProtectedRoutes>
+            } />
+          <Route path="/login" element={<Login  cambiarLogin = {cambiarLogin}/>} />
         </Routes>
       </BrowserRouter>
     </>
