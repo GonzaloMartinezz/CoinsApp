@@ -2,11 +2,56 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({cambiarLogin}) => {
+const Login = (/* {cambiarLogin} */) => {
 
+  const [formValues, setFormValues] = useState({
+    email: "",
+    password: "",
+  });
 
+  const handleChange =(e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+    });
+  };
   
-   const navigate = useNavigate();
+const handleSubmit =() => {
+  e.preventDefault ();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     email: "",
@@ -45,7 +90,7 @@ const Login = ({cambiarLogin}) => {
       }else{
         alert ("Email o password incorrectos");
       } 
-    }
+    } */
     return (
         <>
             <div className="container">
@@ -54,9 +99,10 @@ const Login = ({cambiarLogin}) => {
                         <h3>Sing in to <i className='fa fa-btc' aria-hidden="true"></i>CoinsApp</h3>
                     </div>
                 </div>
+
                 <div className="row">
                     <div className="col col-md-6 offset-md-3">
-                        <form onsubmit={handleSubmit}>
+                        <form onsubmit={handleSubmit} >
                             <div className="mb-3 d-grid">
                                 <label>Email </label>
                                 <input 
@@ -65,7 +111,6 @@ const Login = ({cambiarLogin}) => {
                                 name="email"
                                 value={formValues.email} 
                                 onChange={handleChange} 
-                                required
                                 />
                             </div>
                             <div className="mb-3 d-grid">
@@ -74,17 +119,17 @@ const Login = ({cambiarLogin}) => {
                                 type="password" 
                                 className="form-control" 
                                 name="password"
-                                value={formValues.password} 
+                               value={formValues.password} 
                                 onChange={handleChange}
-                                required
+                                
                                 />
                             </div>
 
-                            {showAlert && (
+                         {/*    {showAlert && (
                                 <p className="bg-danger text light text-center alert alert-danger" role="alert">
                                     Faltan datos,complete todos los campos !
                                 </p>
-                            )}
+                            )} */}
                             <div className='mb-3 d-grid'>
                                 <button type="submit" className="btn btn-success">Sign In</button>
                             </div>
