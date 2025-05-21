@@ -16,12 +16,17 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path = "/*" element={
+          <Route path = "/*" 
+          element={
             <ProtectedRoutes login = {login}> 
             <RoutesApp cambiarLogin = {cambiarLogin} />
             </ProtectedRoutes>
-            } />
-          <Route path="/login" element={<Login  cambiarLogin = {cambiarLogin}/>} />
+            } 
+            />
+          <Route
+          path="/login" 
+          element={<Login  cambiarLogin = {cambiarLogin} />}
+          />
         </Routes>
       </BrowserRouter>
     </>

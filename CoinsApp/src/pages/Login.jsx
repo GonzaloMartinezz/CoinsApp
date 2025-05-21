@@ -34,14 +34,15 @@ const handleSubmit =(e) => {
 if (!email || !password) {
   setShowAlert (true);
 }
+
 //validar el usuario REGISTRADO//
 if (email === user.email && password === user.password) {
-  navigate("/");
+  cambiarLogin();
+  navigate ("/");
 }else{
   alert ("Usuario o contraseña incorrecta!");
 }
 };
-
     return (
         <>
             <div className="container">
