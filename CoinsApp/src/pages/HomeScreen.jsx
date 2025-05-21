@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { getCoins } from '../helpers/coinsApi'
-import TableCoins from '../components/TableCoins'
+import { getCoins } from "../helpers/coinsApi"
+import TableCoins from "../components/TableCoins"
 const HomeScreen = () => {
     const [coins , setCoins] = useState(null);
     useEffect(() => {
@@ -42,8 +42,6 @@ const HomeScreen = () => {
                 )}
           </div>
         </div>
-
-
         </>
     )
 }

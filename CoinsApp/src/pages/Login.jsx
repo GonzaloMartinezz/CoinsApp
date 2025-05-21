@@ -1,96 +1,47 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 
-const Login = (/* {cambiarLogin} */) => {
+const Login = ({cambiarLogin} ) => {
+  const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
 
+  const {email, password} = formValues;
+
+  const [showAlert, setShowAlert] = useState(false);
+
   const handleChange =(e) => {
+    setShowAlert (false)
+
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
     });
   };
   
-const handleSubmit =() => {
+const handleSubmit =(e) => {
   e.preventDefault ();
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*    const navigate = useNavigate();
-
-  const [formValues, setFormValues] = useState({
-    email: "",
-    password: "",
-  });
-
-  const { email, password } = formValues;
-
-  const [showAlert, setShowAlert] = useState(false);
- 
-   const handleChange = (e) => {
-    setShowAlert (false)  
-    setFormValues({
-      ...formValues,
-      [e.target.name]: e.target.value,
-    });
+  const user = {
+    email : "gonza@gonza.com",
+    password :"123456",
   };
-    const handleSubmit = (e) => {
-      e.preventDefault();
 
-    const user = {
-      email: "gonza@gonza.com",
-      password: "123456"
-    }
+if (!email || !password) {
+  setShowAlert (true);
+}
+//validar el usuario REGISTRADO//
+if (email === user.email && password === user.password) {
+  navigate("/");
+}else{
+  alert ("Usuario o contraseña incorrecta!");
+}
+};
 
-      if (!email || !password) {
-        alert ("Faltan datos en el campo!");
-        setShowAlert(true);
-      }
-
-      //validar el usuario REGISTRADO//
-
-      if(email === user.email && password === user.password){       
-        cambiarLogin();
-        navigate("/");
-      }else{
-        alert ("Email o password incorrectos");
-      } 
-    } */
     return (
         <>
             <div className="container">
@@ -102,9 +53,9 @@ const handleSubmit =() => {
 
                 <div className="row">
                     <div className="col col-md-6 offset-md-3">
-                        <form onsubmit={handleSubmit} >
+                        <form onSubmit={handleSubmit}>
                             <div className="mb-3 d-grid">
-                                <label>Email </label>
+                                <label>Email</label>
                                 <input 
                                 type="email" 
                                 className="form-control" 
@@ -119,17 +70,13 @@ const handleSubmit =() => {
                                 type="password" 
                                 className="form-control" 
                                 name="password"
-                               value={formValues.password} 
+                                value={formValues.password} 
                                 onChange={handleChange}
-                                
                                 />
                             </div>
-
-                         {/*    {showAlert && (
-                                <p className="bg-danger text light text-center alert alert-danger" role="alert">
-                                    Faltan datos,complete todos los campos !
-                                </p>
-                            )} */}
+                            {showAlert && (
+                             <p className="bg-danger text-light text-center m-3">Faltan datos,complete todos los campos!</p>
+                            )}
                             <div className='mb-3 d-grid'>
                                 <button type="submit" className="btn btn-success">Sign In</button>
                             </div>
@@ -140,5 +87,4 @@ const handleSubmit =() => {
         </>
     )
 }
-
 export default Login
