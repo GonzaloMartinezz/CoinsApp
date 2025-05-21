@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TableCoins = () => {
+const TableCoins = ({coins}) => {
   return (
     <>
     <table className="table table-hover">
@@ -13,7 +13,17 @@ const TableCoins = () => {
                 <th>Change 24Hr</th>
             </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+            {coins.map((coin) => (
+                 <tr key={coin.id}>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            ))}
+        </tbody>  
     </table>
     </>
   )

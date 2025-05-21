@@ -29,7 +29,9 @@ const HomeScreen = () => {
                 </div>
             </div>
             <div className="row"> {/*barra de busqueda*/}</div>
-            <div classname="row mt-5"><TableCoins /></div>
+            <div classname="row mt-5">
+                <TableCoins coins={coins}/>
+                </div>
         </div>
 
 
