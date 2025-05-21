@@ -16,7 +16,7 @@ const TableCoins = ({coins}) => {
         <tbody>
             {coins.map((coin) => (
                  <tr key={coin.id}>
-                <th></th>
+                <th>{coin.rank}</th>
                 <th></th>
                 <th></th>
                 <th></th>

@@ -3,6 +3,9 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({cambiarLogin}) => {
+
+
+  
    const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -15,6 +18,7 @@ const Login = ({cambiarLogin}) => {
   const [showAlert, setShowAlert] = useState(false);
  
    const handleChange = (e) => {
+    setShowAlert (false)  
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value,
@@ -24,23 +28,24 @@ const Login = ({cambiarLogin}) => {
       e.preventDefault();
 
     const user = {
-      email: "gonzalo@gonza.com",
+      email: "gonza@gonza.com",
       password: "123456"
     }
 
-      //validaciones//
-      if(!email || !password){
+      if (!email || !password) {
+        alert ("Faltan datos en el campo!");
         setShowAlert(true);
       }
+
+      //validar el usuario REGISTRADO//
 
       if(email === user.email && password === user.password){       
         cambiarLogin();
         navigate("/");
       }else{
         alert ("Email o password incorrectos");
-      }
+      } 
     }
-
     return (
         <>
             <div className="container">
@@ -59,7 +64,8 @@ const Login = ({cambiarLogin}) => {
                                 className="form-control" 
                                 name="email"
                                 value={formValues.email} 
-                                onChange={handleChange}                    
+                                onChange={handleChange} 
+                                required
                                 />
                             </div>
                             <div className="mb-3 d-grid">
@@ -70,13 +76,14 @@ const Login = ({cambiarLogin}) => {
                                 name="password"
                                 value={formValues.password} 
                                 onChange={handleChange}
+                                required
                                 />
                             </div>
 
                             {showAlert && (
-                                <div className="alert alert-danger" role="alert">
-                                    Todos los campos son obligatorios
-                                </div>
+                                <p className="bg-danger text light text-center alert alert-danger" role="alert">
+                                    Faltan datos,complete todos los campos !
+                                </p>
                             )}
                             <div className='mb-3 d-grid'>
                                 <button type="submit" className="btn btn-success">Sign In</button>
