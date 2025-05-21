@@ -1,7 +1,16 @@
-import React from 'react'
-import {getCoins} from '../helpers/coinsApi'
+import React, { useEffect } from 'react'
+import { getCoins } from '../helpers/coinsApi'
 import TableCoins from '../components/TableCoins'
 const HomeScreen = () => {
+    const [coins , setCoins] = useState(null);
+    useEffect(() => {
+        traerMonedas();
+    } , []);
+    const traerMonedas = async () =>{
+        const {data} = await getCoins();
+
+        setCoins(data);
+    }
     return (
         <>
         <div className= "container">

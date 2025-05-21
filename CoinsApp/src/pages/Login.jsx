@@ -23,10 +23,10 @@ const Login = ({cambiarLogin}) => {
     const handleSubmit = (e) => {
       e.preventDefault();
 
-      const user = {
-        email: "gonza@gonza.com",
-        password: "123456",
-      };
+    const user = {
+      email: "gonzalo@gonza.com",
+      password: "123456"
+    }
 
       //validaciones//
       if(!email || !password){
