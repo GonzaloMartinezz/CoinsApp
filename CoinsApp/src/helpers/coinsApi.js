@@ -1,9 +1,9 @@
-const url = "rest.coincap.io/v3/assets?apiKey=YourApiKey"
+const url = "api.coincap.io/v2/assets";
 
 let limite = 10;
 
-const getCoins = async () => {
-    const coins = await fetch(`${url}?limit=${limite}`);
-    const data = await coins.json();
-    return data
-}
+export const getCoins = async () => {
+const coins =await fetch (url + "?limit=" + limite);
+const data = await coins.json();
+return data;
+};

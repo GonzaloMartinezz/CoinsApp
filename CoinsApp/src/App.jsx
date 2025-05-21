@@ -16,7 +16,7 @@ const cambiarLogin = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Router path = "/*" element={
+          <Route path = "/*" element={
             <ProtectedRoutes login = {login}> 
             <RoutesApp cambiarLogin = {cambiarLogin} />
             </ProtectedRoutes>

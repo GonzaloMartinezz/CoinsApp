@@ -1,5 +1,6 @@
 import React from 'react'
-
+import {getCoins} from '../helpers/coinsApi'
+import TableCoins from '../components/TableCoins'
 const HomeScreen = () => {
     return (
         <>
@@ -19,7 +20,7 @@ const HomeScreen = () => {
                 </div>
             </div>
             <div className="row"> {/*barra de busqueda*/}</div>
-            <div classname="row mt-5">{/*tabla*/}</div>
+            <div classname="row mt-5"><TableCoins /></div>
         </div>
 
 
