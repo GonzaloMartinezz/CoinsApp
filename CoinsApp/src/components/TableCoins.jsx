@@ -18,7 +18,7 @@ const TableCoins = ({coins}) => {
                  <tr key={coin.id}>
                 <td>{coin.rank}</td>
                 <td>
-                    <img src="https://assets.coincap.io/assets/icons/btc2@2x.png" alt="" />
+                    <img src="" alt="" />
                 </td>
                 <td>{coin.name}</td>
                 <td>{coin.priceUsd}</td>
