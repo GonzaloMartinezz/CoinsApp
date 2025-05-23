@@ -16,11 +16,14 @@ const TableCoins = ({coins}) => {
         <tbody>
             {coins.map((coin) => (
                  <tr key={coin.id}>
-                <th>{coin.rank}</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <td>{coin.rank}</td>
+                <td>
+                    <img src="https://assets.coincap.io/assets/icons/btc2@2x.png" alt="" />
+                </td>
+                <td>{coin.name}</td>
+                <td>{coin.priceUsd}</td>
+                <td>{coin.changePercent24Hr}</td>
+            
             </tr>
             ))}
         </tbody>  
